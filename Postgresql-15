@@ -1,0 +1,28 @@
+pg_ctl:
+    命令行输入: pg_ctl reload
+    代码执行, pg_ctl.c,
+        main()
+        {
+            /*保存主postgres 进程的pid 文件路径*/
+            snprintf(pid_file, MAXPGPATH, "%s/postmaster.pid", pg_data);
+
+            /*reload 参数输入的情况下, 调用do_reload()*/
+            case RELOAD_COMMAND:
+                sig = SIGHUP;
+			    do_reload();
+        };
+        do_reload
+        {
+            通过 kill(pid, sig) 方式发送
+        }
+
+postmaster.pid 结构:
+    postmaster.pid
+        2021                    #主postmaster 进程的进程ID
+        /var/lib/pgsql/data     #PGDATA 目录
+        1699230517
+        5432                    #监听端口
+        /var/run/postgresql
+        *
+        393217         0
+        ready
