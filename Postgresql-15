@@ -1,3 +1,4 @@
+```mermaid
 1, src/bin/pg_ctl 命令:    
     代码执行, pg_ctl.c,
         全局文件指针,
@@ -71,4 +72,3 @@
 
 3, 进程关系,
     pg_ctl ->> postmaster : fork
-    
