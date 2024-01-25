@@ -1,4 +1,3 @@
-```mermaid
 1, src/bin/pg_ctl 命令:    
     代码执行, pg_ctl.c,
         全局文件指针,
@@ -71,4 +70,5 @@
         例如: postgres.conf 配置文件里面的, listen_addresses 和 port 参数.
 
 3, 进程关系,
+    ```mermaid
     pg_ctl ->> postmaster : fork
