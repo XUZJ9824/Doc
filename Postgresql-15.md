@@ -68,7 +68,20 @@
         ConfigureNamesReal[]{}
         ConfigureNamesString[]{}
         例如: postgres.conf 配置文件里面的, listen_addresses 和 port 参数.
+        
+    2.2 postgres 新建进程的名称,
+        GetBackendTypeDesc(){
+            case B_INVALID: backendDesc = "not initialized";
+			case B_AUTOVAC_LAUNCHER: backendDesc = "autovacuum launcher";
+			case B_AUTOVAC_WORKER: backendDesc = "autovacuum worker";
+            case B_BACKEND: backendDesc = "client backend";
+            case B_BG_WORKER: backendDesc = "background worker";
+            case B_BG_WRITER: backendDesc = "background writer";
+            case B_CHECKPOINTER: backendDesc = "checkpointer";
+            case B_STARTUP: backendDesc = "startup";
+            case B_WAL_RECEIVER: backendDesc = "walreceiver";
+            case B_WAL_SENDER: backendDesc = "walsender";
+            case B_WAL_WRITER: backendDesc = "walwriter";
+            case B_ARCHIVER: backendDesc = "archiver";
+            case B_LOGGER: backendDesc = "logger"; }
 
-3, 进程关系,
-    ```mermaid
-    pg_ctl ->> postmaster : fork
